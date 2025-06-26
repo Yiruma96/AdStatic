@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+	<key>FramedAchievement_Shrewd</key>
+	<string>CgkI4tLd8skMEAIQAQ</string>
+	
+	<key>FramedAchievement_Skilled</key>
+	<string>CgkI4tLd8skMEAIQAg</string>
+
+	<key>FramedAchievement_Gifted</key>
+	<string>CgkI4tLd8skMEAIQAw</string>
+
+	<key>FramedAchievement_Master</key>
+	<string>CgkI4tLd8skMEAIQBA</string>
+
+	<key>FramedAchievement_CuriosityKilledTheCat</key>
+	<string>CgkI4tLd8skMEAIQBQ</string>
+
+	<key>FramedAchievement_Sneaky</key>
+	<string>CgkI4tLd8skMEAIQBg</string>
+	
+	<key>FramedAchievement_ReallySneaky</key>
+	<string>CgkI4tLd8skMEAIQBw</string>
+	
+	<key>FramedAchievement_TotallySneaky</key>
+	<string>CgkI4tLd8skMEAIQCA</string>
+	
+	<key>FramedAchievement_ChangeTheOrderChangeTheOutcome</key>
+	<string>CgkI4tLd8skMEAIQCQ</string>
+	
+	<key>FramedAchievement_Credit</key>
+	<string>CgkI4tLd8skMEAIQCg</string>
+
+	<key>FramedAchievement_NoPainNoGain</key>
+	<string>CgkI4tLd8skMEAIQCw</string>
+
+	<key>FramedAchievement_GottaCatchEmAll</key>
+	<string>CgkI4tLd8skMEAIQDA</string>
+</dict>
+</plist>

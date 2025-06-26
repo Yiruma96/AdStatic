@@ -1,0 +1,30 @@
+!!b.a.b.a
+apkFileName: pdl.apk
+compressionType: false
+decodeFileMaps:
+  res/drawable-mdpi/ic_launcher.png: res/drawable-mdpi-v4/ic_launcher.png
+  res/drawable-xxhdpi/ic_launcher.png: res/drawable-xxhdpi-v4/ic_launcher.png
+  res/drawable-hdpi/ic_launcher.png: res/drawable-hdpi-v4/ic_launcher.png
+  res/drawable-xhdpi/ic_launcher.png: res/drawable-xhdpi-v4/ic_launcher.png
+dexMaps: null
+doNotCompress:
+- resources.arsc
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '8'
+  targetSdkVersion: '17'
+shakaVer: 2.0.0-20160601
+sharedLibrary: false
+unknownFiles:
+  META-INF/MANIFEST.MF: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.1.2
+versionInfo:
+  versionCode: '1'
+  versionName: '1.0'

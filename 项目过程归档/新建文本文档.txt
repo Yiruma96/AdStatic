@@ -1,0 +1,1 @@
+java1.6 -cp soot-2.5.0.jar soot.Main -f J -cp . -pp hello

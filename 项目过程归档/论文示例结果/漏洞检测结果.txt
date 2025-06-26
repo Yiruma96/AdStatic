@@ -1,0 +1,824 @@
+**自实现的校验证书的X509TrustManager接口的checkServerTrusted()方法实现为空，未检查服务器是否可信，可能受到中间人劫持攻击
+
+javax.net.ssl.X509TrustManager
+    -<com.autohome.ahkit.network.HttpsTrustManager$TrustManager: void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String)>
+
+javax.net.ssl.X509TrustManager
+    -<com.baidu.location.s$a$1: void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String)>
+
+javax.net.ssl.X509TrustManager
+    -<com.autohome.ahkit.network.download.HttpDownloader$1: void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String)>
+
+javax.net.ssl.X509TrustManager
+    -<com.meizu.cloud.pushsdk.platform.SSLCertificateValidation$NullX509TrustManager: void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String)>
+
+
+==========================
+**检测到应用存在代码动态加载的行为，应用可能隐藏有未检查到的恶意功能 | 另一方面，被动态加载的文件如果存放在明文目录，或是在加载中没有做完整性校验，则可能会被恶意代码注入并执行
+
+com.xiaomi.channel.commonutils.android.a
+    -<com.xiaomi.channel.commonutils.android.a: java.lang.String b(android.content.Context)>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.content.pm.ApplicationInfo")
+
+com.xiaomi.channel.commonutils.android.g
+    -<com.xiaomi.channel.commonutils.android.g: java.lang.String a(java.lang.String,java.lang.String)>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.xiaomi.channel.commonutils.android.g
+    -<com.xiaomi.channel.commonutils.android.g: java.lang.String a(java.lang.String,java.lang.String)>
+        -$r4 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("get", $r3)
+com.xiaomi.channel.commonutils.android.g
+    -<com.xiaomi.channel.commonutils.android.g: java.lang.String a(java.lang.String,java.lang.String)>
+        -$r6 = virtualinvoke $r4.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r5)
+
+com.xiaomi.push.service.module.b
+    -<com.xiaomi.push.service.module.b: void <init>(java.lang.String,java.lang.String,java.lang.ClassLoader,java.lang.String,int)>
+        -$r5 = virtualinvoke $r3.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>($r4)
+
+com.xiaomi.push.service.module.b
+    -<com.xiaomi.push.service.module.b: void a(android.content.Context)>
+        -$r5 = virtualinvoke $r3.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>($r4)
+com.xiaomi.push.service.module.b
+    -<com.xiaomi.push.service.module.b: void a(android.content.Context)>
+        -$r7 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("onCreate", $r6)
+com.xiaomi.push.service.module.b
+    -<com.xiaomi.push.service.module.b: void a(android.content.Context)>
+        -virtualinvoke $r7.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r2, $r8)
+
+com.umeng.socialize.sina.webview.ShareDialog
+    -<com.umeng.socialize.sina.webview.ShareDialog: void removeJavascriptInterface(android.webkit.WebView)>
+        -virtualinvoke $r4.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>("searchBoxJavaBridge_", $r5)
+
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: com.igexin.assist.control.AbstractPushManager a(android.content.Context)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.assist.control.MiuiPushManager")
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: com.igexin.assist.control.AbstractPushManager a(android.content.Context)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.assist.control.FlymePushManager")
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: com.igexin.assist.control.AbstractPushManager a(android.content.Context)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.assist.control.HmsPushManager")
+
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean b(android.content.Context)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.assist.control.MiuiPushManager")
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean b(android.content.Context)>
+        -$r3 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("checkXMDevice", $r2)
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean b(android.content.Context)>
+        -$r5 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r4)
+
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean c(android.content.Context)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.assist.control.FlymePushManager")
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean c(android.content.Context)>
+        -$r3 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("checkMZDevice", $r2)
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean c(android.content.Context)>
+        -$r5 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r4)
+
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean d(android.content.Context)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.assist.control.HmsPushManager")
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean d(android.content.Context)>
+        -$r3 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("checkHWDevice", $r2)
+com.igexin.assist.sdk.a
+    -<com.igexin.assist.sdk.a: boolean d(android.content.Context)>
+        -$r5 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r4)
+
+com.bumptech.glide.module.ManifestParser
+    -<com.bumptech.glide.module.ManifestParser: com.bumptech.glide.module.GlideModule parseModule(java.lang.String)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0)
+
+com.meizu.cloud.pushsdk.pushtracer.tracker.Subject
+    -<com.meizu.cloud.pushsdk.pushtracer.tracker.Subject: void setDefaultScreenResolution(android.content.Context)>
+        -virtualinvoke $r7.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getSize", $r6)
+
+com.umeng.socialize.handler.UMAPIShareHandler
+    -<com.umeng.socialize.handler.UMAPIShareHandler: void doShare(com.umeng.socialize.ShareContent,com.umeng.socialize.UMShareListener)>
+        -$r11 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.umeng.socialize.editorpage.ShareActivity")
+
+com.igexin.assist.control.HmsPushManager
+    -<com.igexin.assist.control.HmsPushManager: boolean checkHWDevice(android.content.Context)>
+        -$r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.igexin.assist.control.HmsPushManager
+    -<com.igexin.assist.control.HmsPushManager: boolean checkHWDevice(android.content.Context)>
+        -$r9 = virtualinvoke $r7.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r8)
+
+com.igexin.sdk.a.a
+    -<com.igexin.sdk.a.a: boolean a(android.content.Context)>
+        -$r3 = virtualinvoke $r2.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>("com.igexin.push.core.stub.PushCore")
+
+com.meizu.cloud.pushsdk.NotificationService
+    -<com.meizu.cloud.pushsdk.NotificationService: void a(android.content.Intent)>
+        -$r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r2)
+com.meizu.cloud.pushsdk.NotificationService
+    -<com.meizu.cloud.pushsdk.NotificationService: void a(android.content.Intent)>
+        -$r9 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("onReceive", $r8)
+com.meizu.cloud.pushsdk.NotificationService
+    -<com.meizu.cloud.pushsdk.NotificationService: void a(android.content.Intent)>
+        -virtualinvoke $r9.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r7, $r10)
+
+com.igexin.push.e.c
+    -<com.igexin.push.e.c: void b(java.lang.String)>
+        -$r9 = virtualinvoke $r8.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>($r7)
+
+com.igexin.push.e.c
+    -<com.igexin.push.e.c: void c(com.igexin.push.e.a)>
+        -$r12 = virtualinvoke $r11.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>($r10)
+
+org.greenrobot.eventbus.EventBus
+    -<org.greenrobot.eventbus.EventBus: void invokeSubscriber(org.greenrobot.eventbus.Subscription,java.lang.Object)>
+        -virtualinvoke $r5.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r6, $r7)
+
+com.meizu.cloud.pushsdk.common.b.e
+    -<com.meizu.cloud.pushsdk.common.b.e: com.meizu.cloud.pushsdk.common.b.e a(java.lang.String)>
+        -$r4 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0)
+
+com.meizu.cloud.pushsdk.common.b.e
+    -<com.meizu.cloud.pushsdk.common.b.e: java.lang.reflect.Method b(java.lang.Class,java.lang.String,java.lang.Class[])>
+        -$r3 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>($r1, $r2)
+
+com.igexin.push.core.f
+    -<com.igexin.push.core.f: java.lang.reflect.Method a(java.lang.String,java.lang.Class[])>
+        -$r3 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.dms.DMSManager")
+com.igexin.push.core.f
+    -<com.igexin.push.core.f: java.lang.reflect.Method a(java.lang.String,java.lang.Class[])>
+        -$r4 = virtualinvoke $r3.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>($r1, $r2)
+
+com.igexin.push.core.f
+    -<com.igexin.push.core.f: void b()>
+        -$r2 = virtualinvoke $r35.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r36)
+com.igexin.push.core.f
+    -<com.igexin.push.core.f: void b()>
+        -virtualinvoke $r35.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r2, $r36)
+
+com.xiaomi.push.service.r
+    -<com.xiaomi.push.service.r: android.app.Notification a(android.app.Notification,java.lang.String)>
+        -virtualinvoke $r6.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r4, $r7)
+
+com.xiaomi.push.service.r
+    -<com.xiaomi.push.service.r: void a(android.content.Context,com.xiaomi.xmpush.thrift.o,byte[])>
+        -$r19 = virtualinvoke $r17.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("setLatestEventInfo", $r18)
+com.xiaomi.push.service.r
+    -<com.xiaomi.push.service.r: void a(android.content.Context,com.xiaomi.xmpush.thrift.o,byte[])>
+        -virtualinvoke $r19.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r8, $r20)
+
+com.huawei.hms.support.log.a
+    -<com.huawei.hms.support.log.a: void c()>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.util.Log")
+
+com.xiaomi.mipush.sdk.c
+    -<com.xiaomi.mipush.sdk.c: void run()>
+        -$r6 = virtualinvoke $r5.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>("com.xiaomi.push.mpcd.MpcdPlugin")
+com.xiaomi.mipush.sdk.c
+    -<com.xiaomi.mipush.sdk.c: void run()>
+        -$r8 = virtualinvoke $r6.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("main", $r7)
+com.xiaomi.mipush.sdk.c
+    -<com.xiaomi.mipush.sdk.c: void run()>
+        -virtualinvoke $r8.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r9)
+
+com.xiaomi.channel.commonutils.reflect.a
+    -<com.xiaomi.channel.commonutils.reflect.a: java.lang.Object a(java.lang.Class,java.lang.String,java.lang.Object[])>
+        -$r5 = virtualinvoke $r4.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r2)
+
+com.xiaomi.channel.commonutils.reflect.a
+    -<com.xiaomi.channel.commonutils.reflect.a: java.lang.Object a(java.lang.String,java.lang.String,java.lang.Object[])>
+        -$r3 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0)
+
+com.xiaomi.channel.commonutils.reflect.a
+    -<com.xiaomi.channel.commonutils.reflect.a: java.lang.Object b(java.lang.Object,java.lang.String,java.lang.Object[])>
+        -$r0 = virtualinvoke $r5.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r0, $r2)
+
+com.autohome.ahkit.utils.ScreenUtil
+    -<com.autohome.ahkit.utils.ScreenUtil: int getStatusBarHeight(android.content.Context)>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.android.internal.R$dimen")
+
+com.aps.ab
+    -<com.aps.ab: boolean c()>
+        -$r1 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("isExternalStorageRemovable", null)
+com.aps.ab
+    -<com.aps.ab: boolean c()>
+        -$r2 = virtualinvoke $r1.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, null)
+
+com.xiaomi.mipush.sdk.PushMessageHandler
+    -<com.xiaomi.mipush.sdk.PushMessageHandler: void onHandleIntent(android.content.Intent)>
+        -$r16 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r3)
+
+com.autohome.usedcar.util.ConnUtil
+    -<com.autohome.usedcar.util.ConnUtil: java.util.List getLocalDNS()>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.autohome.usedcar.util.ConnUtil
+    -<com.autohome.usedcar.util.ConnUtil: java.util.List getLocalDNS()>
+        -$r2 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("get", $r3)
+com.autohome.usedcar.util.ConnUtil
+    -<com.autohome.usedcar.util.ConnUtil: java.util.List getLocalDNS()>
+        -$r8 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r7)
+
+com.xiaomi.mipush.sdk.MiPushClient
+    -<com.xiaomi.mipush.sdk.MiPushClient: void checkReceivers(android.content.Context)>
+        -$r7 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.xiaomi.push.service.receivers.PingReceiver")
+com.xiaomi.mipush.sdk.MiPushClient
+    -<com.xiaomi.mipush.sdk.MiPushClient: void checkReceivers(android.content.Context)>
+        -$r13 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r2)
+
+com.umeng.socialize.a.a
+    -<com.umeng.socialize.a.a: java.lang.String b()>
+        -$r0 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.umeng.socialize.a.a
+    -<com.umeng.socialize.a.a: java.lang.String b()>
+        -$r2 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("get", $r1)
+com.umeng.socialize.a.a
+    -<com.umeng.socialize.a.a: java.lang.String b()>
+        -$r4 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r0, $r3)
+
+com.ut.mini.plugin.UTPluginMgr
+    -<com.ut.mini.plugin.UTPluginMgr: void runPartnerPlugin()>
+        -$r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r4)
+
+com.ta.utdid2.b.a.c
+    -<com.ta.utdid2.b.a.c: int a(java.lang.String)>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.ta.utdid2.b.a.c
+    -<com.ta.utdid2.b.a.c: int a(java.lang.String)>
+        -$r7 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r1, $r5)
+
+com.igexin.push.util.a
+    -<com.igexin.push.util.a: boolean a()>
+        -$r3 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.ServiceManager")
+com.igexin.push.util.a
+    -<com.igexin.push.util.a: boolean a()>
+        -$r5 = virtualinvoke $r3.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getService", $r4)
+
+com.igexin.push.util.a
+    -<com.igexin.push.util.a: boolean a(java.lang.Class,java.lang.reflect.Method,java.lang.String)>
+        -$r3 = virtualinvoke $r1.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r0, $r4)
+
+com.igexin.push.util.a
+    -<com.igexin.push.util.a: boolean a(java.lang.String,android.content.Context,java.lang.Class)>
+        -$r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r4)
+com.igexin.push.util.a
+    -<com.igexin.push.util.a: boolean a(java.lang.String,android.content.Context,java.lang.Class)>
+        -staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0)
+
+com.igexin.push.util.a
+    -<com.igexin.push.util.a: boolean e()>
+        -staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.support.v4.content.LocalBroadcastManager")
+
+com.autohome.usedcar.photo.camera.CameraActivity
+    -<com.autohome.usedcar.photo.camera.CameraActivity: void setDisplayOrientation(android.hardware.Camera,int)>
+        -$r6 = virtualinvoke $r4.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("setDisplayOrientation", $r5)
+com.autohome.usedcar.photo.camera.CameraActivity
+    -<com.autohome.usedcar.photo.camera.CameraActivity: void setDisplayOrientation(android.hardware.Camera,int)>
+        -virtualinvoke $r6.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r1, $r7)
+
+com.huawei.hms.support.api.a
+    -<com.huawei.hms.support.api.a: void a(com.huawei.hms.support.api.client.ApiClient,java.lang.String,com.huawei.hms.core.aidl.IMessageEntity,java.lang.Class)>
+        -$r9 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r8)
+
+com.igexin.download.DownloadService
+    -<com.igexin.download.DownloadService: boolean a(android.database.Cursor,int)>
+        -$r7 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("scanFile", $r6)
+com.igexin.download.DownloadService
+    -<com.igexin.download.DownloadService: boolean a(android.database.Cursor,int)>
+        -virtualinvoke $r7.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r3, $r8)
+
+com.igexin.download.DownloadService
+    -<com.igexin.download.DownloadService: void onCreate()>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.google.android.collect.Lists")
+com.igexin.download.DownloadService
+    -<com.igexin.download.DownloadService: void onCreate()>
+        -$r4 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("newArrayList", $r3)
+com.igexin.download.DownloadService
+    -<com.igexin.download.DownloadService: void onCreate()>
+        -$r6 = virtualinvoke $r4.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r5)
+
+com.umeng.socialize.sina.util.AidTask
+    -<com.umeng.socialize.sina.util.AidTask: java.lang.String getSerialNo()>
+        -$r0 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.umeng.socialize.sina.util.AidTask
+    -<com.umeng.socialize.sina.util.AidTask: java.lang.String getSerialNo()>
+        -$r2 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("get", $r1)
+com.umeng.socialize.sina.util.AidTask
+    -<com.umeng.socialize.sina.util.AidTask: java.lang.String getSerialNo()>
+        -$r4 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r0, $r3)
+
+android.databinding.adapters.TextViewBindingAdapter
+    -<android.databinding.adapters.TextViewBindingAdapter: void setInputMethod(android.widget.TextView,java.lang.CharSequence)>
+        -$r3 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r2)
+
+com.autohome.usedcar.photo.tag.label.TagEditor
+    -<com.autohome.usedcar.photo.tag.label.TagEditor: int getStatusBarHeight()>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.android.internal.R$dimen")
+
+com.autohome.usedcar.activity.personcenter.AboutUsSysFragment
+    -<com.autohome.usedcar.activity.personcenter.AboutUsSysFragment: void getDefault()>
+        -$r11 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.autohome.usedcar.activity.personcenter.AboutUsSysFragment
+    -<com.autohome.usedcar.activity.personcenter.AboutUsSysFragment: void getDefault()>
+        -$r12 = virtualinvoke $r11.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("get", $r13)
+com.autohome.usedcar.activity.personcenter.AboutUsSysFragment
+    -<com.autohome.usedcar.activity.personcenter.AboutUsSysFragment: void getDefault()>
+        -$r16 = virtualinvoke $r12.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r15)
+
+com.meizu.cloud.pushsdk.pushtracer.tracker.Tracker$TrackerBuilder
+    -<com.meizu.cloud.pushsdk.pushtracer.tracker.Tracker$TrackerBuilder: void <clinit>()>
+        -$r0 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.meizu.pushtracker.tracker.rx.Tracker")
+com.meizu.cloud.pushsdk.pushtracer.tracker.Tracker$TrackerBuilder
+    -<com.meizu.cloud.pushsdk.pushtracer.tracker.Tracker$TrackerBuilder: void <clinit>()>
+        -$r0 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.meizu.pushtracker.tracker.classic.Tracker")
+
+com.autohome.usedcar.widget.subscribedialog.OptAnimationLoader
+    -<com.autohome.usedcar.widget.subscribedialog.OptAnimationLoader: android.view.animation.Animation createAnimationFromXml(android.content.Context,org.xmlpull.v1.XmlPullParser,android.view.animation.AnimationSet,android.util.AttributeSet)>
+        -$r8 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r6)
+
+com.igexin.sdk.PushManager
+    -<com.igexin.sdk.PushManager: void registerPushIntentService(android.content.Context,java.lang.Class)>
+        -staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r3)
+
+com.igexin.sdk.GTServiceManager
+    -<com.igexin.sdk.GTServiceManager: java.lang.reflect.Method a(java.lang.String,java.lang.Class[])>
+        -$r3 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.igexin.dms.DMSManager")
+com.igexin.sdk.GTServiceManager
+    -<com.igexin.sdk.GTServiceManager: java.lang.reflect.Method a(java.lang.String,java.lang.Class[])>
+        -$r4 = virtualinvoke $r3.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>($r1, $r2)
+
+com.igexin.sdk.GTServiceManager
+    -<com.igexin.sdk.GTServiceManager: void a(android.app.Service,android.content.Intent)>
+        -$r10 = virtualinvoke $r8.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r9)
+com.igexin.sdk.GTServiceManager
+    -<com.igexin.sdk.GTServiceManager: void a(android.app.Service,android.content.Intent)>
+        -virtualinvoke $r8.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r10, $r9)
+
+com.igexin.sdk.GTServiceManager
+    -<com.igexin.sdk.GTServiceManager: java.lang.Class getUserIntentService(android.content.Context)>
+        -$r4 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r3)
+
+com.igexin.sdk.GTServiceManager
+    -<com.igexin.sdk.GTServiceManager: java.lang.Class getUserPushService(android.content.Context)>
+        -$r4 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r3)
+
+com.igexin.sdk.GTServiceManager
+    -<com.igexin.sdk.GTServiceManager: boolean isUserPushServiceSet(android.content.Context)>
+        -staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r3)
+
+com.igexin.push.extension.a
+    -<com.igexin.push.extension.a: void b(android.content.Context)>
+        -$r7 = virtualinvoke $r6.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>($r5)
+
+com.igexin.push.extension.a
+    -<com.igexin.push.extension.a: boolean a(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>
+        -$r7 = virtualinvoke $r12.<dalvik.system.DexClassLoader: java.lang.Class loadClass(java.lang.String)>($r3)
+
+com.autohome.usedcar.util.MobileUtil
+    -<com.autohome.usedcar.util.MobileUtil: int getScreenHeight()>
+        -$r6 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.view.Display")
+com.autohome.usedcar.util.MobileUtil
+    -<com.autohome.usedcar.util.MobileUtil: int getScreenHeight()>
+        -$r8 = virtualinvoke $r6.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getRealMetrics", $r7)
+com.autohome.usedcar.util.MobileUtil
+    -<com.autohome.usedcar.util.MobileUtil: int getScreenHeight()>
+        -virtualinvoke $r8.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r9)
+
+com.autohome.usedcar.util.MobileUtil
+    -<com.autohome.usedcar.util.MobileUtil: int getSmartBarHeight(android.content.Context)>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.android.internal.R$dimen")
+
+com.autohome.usedcar.util.MobileUtil
+    -<com.autohome.usedcar.util.MobileUtil: boolean isFlyme()>
+        -$r2 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("hasSmartBar", $r3)
+
+com.aps.o
+    -<com.aps.o: int a(android.telephony.CellLocation,android.content.Context)>
+        -staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.telephony.cdma.CdmaCellLocation")
+
+com.aps.l
+    -<com.aps.l: int a(java.lang.Object,java.lang.String,java.lang.Object[])>
+        -$r7 = virtualinvoke $r4.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>($r1, $r3)
+com.aps.l
+    -<com.aps.l: int a(java.lang.Object,java.lang.String,java.lang.Object[])>
+        -$r0 = virtualinvoke $r7.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r0, $r2)
+
+com.aps.l
+    -<com.aps.l: java.lang.Object a(java.lang.String,java.lang.String)>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0)
+
+com.aps.l
+    -<com.aps.l: java.lang.Object a(java.lang.String,java.lang.String,java.lang.Object[],java.lang.Class[])>
+        -$r4 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r0)
+com.aps.l
+    -<com.aps.l: java.lang.Object a(java.lang.String,java.lang.String,java.lang.Object[],java.lang.Class[])>
+        -$r5 = virtualinvoke $r4.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>($r1, $r3)
+com.aps.l
+    -<com.aps.l: java.lang.Object a(java.lang.String,java.lang.String,java.lang.Object[],java.lang.Class[])>
+        -$r6 = virtualinvoke $r5.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r2)
+
+com.umeng.socialize.handler.SmsHandler
+    -<com.umeng.socialize.handler.SmsHandler: boolean shareSms(android.content.Context,com.umeng.socialize.media.SmsShareContent,com.umeng.socialize.UMShareListener)>
+        -staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.android.mms.ui.ComposeMessageActivity")
+
+com.ut.mini.UTAnalytics
+    -<com.ut.mini.UTAnalytics: boolean o()>
+        -staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.alibaba.wireless.security.open.SecurityGuardManager")
+
+com.igexin.push.core.a.a.h
+    -<com.igexin.push.core.a.a.h: void a(java.lang.String,java.lang.String,com.igexin.push.core.bean.i)>
+        -$r12 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.app.Notification")
+com.igexin.push.core.a.a.h
+    -<com.igexin.push.core.a.a.h: void a(java.lang.String,java.lang.String,com.igexin.push.core.bean.i)>
+        -$r14 = virtualinvoke $r12.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("setLatestEventInfo", $r13)
+com.igexin.push.core.a.a.h
+    -<com.igexin.push.core.a.a.h: void a(java.lang.String,java.lang.String,com.igexin.push.core.bean.i)>
+        -virtualinvoke $r14.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r11, $r15)
+com.igexin.push.core.a.a.h
+    -<com.igexin.push.core.a.a.h: void a(java.lang.String,java.lang.String,com.igexin.push.core.bean.i)>
+        -$r12 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.android.internal.R$id")
+
+com.pingan.sparta.DeviceProfile
+    -<com.pingan.sparta.DeviceProfile: java.lang.String getHost()>
+        -$r6 = virtualinvoke $r4.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r5)
+
+com.igexin.assist.a.b
+    -<com.igexin.assist.a.b: void a(android.content.Context)>
+        -$r3 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r2)
+
+com.meizu.cloud.pushsdk.common.b.e$a
+    -<com.meizu.cloud.pushsdk.common.b.e$a: com.meizu.cloud.pushsdk.common.b.e$c a()>
+        -$r7 = virtualinvoke $r9.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r3, $r5)
+
+com.umeng.socialize.common.ResContainer
+    -<com.umeng.socialize.common.ResContainer: int[] getResourceDeclareStyleableIntArray(android.content.Context,java.lang.String)>
+        -$r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r4)
+
+com.umeng.socialize.controller.SocialRouter
+    -<com.umeng.socialize.controller.SocialRouter: com.umeng.socialize.handler.UMSSOHandler newHandler(java.lang.String)>
+        -$r3 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r1)
+
+com.umeng.socialize.UmengTool
+    -<com.umeng.socialize.UmengTool: void checkAlipay(android.content.Context)>
+        -$r4 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r2)
+
+com.umeng.socialize.UmengTool
+    -<com.umeng.socialize.UmengTool: java.lang.String checkSinaBySelf(android.content.Context)>
+        -$r6 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.umeng.socialize.editorpage.ShareActivity")
+com.umeng.socialize.UmengTool
+    -<com.umeng.socialize.UmengTool: java.lang.String checkSinaBySelf(android.content.Context)>
+        -$r6 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r10)
+
+com.umeng.socialize.UmengTool
+    -<com.umeng.socialize.UmengTool: java.lang.String checkWxBySelf(android.content.Context)>
+        -$r9 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r4)
+
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.net.http.AndroidHttpClient")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r5 = virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("execute", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r11 = virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("close", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("close", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("close", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("close", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("close", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("close", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r17 = virtualinvoke $r15.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("close", $r16)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r18)
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -$r15 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.FileUtils")
+com.igexin.download.g
+    -<com.igexin.download.g: void run()>
+        -virtualinvoke $r17.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r18)
+
+com.igexin.download.e
+    -<com.igexin.download.e: void onServiceConnected(android.content.ComponentName,android.os.IBinder)>
+        -$r4 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.media.IMediaScannerService")
+com.igexin.download.e
+    -<com.igexin.download.e: void onServiceConnected(android.content.ComponentName,android.os.IBinder)>
+        -$r7 = virtualinvoke $r4.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("asInterface", $r6)
+com.igexin.download.e
+    -<com.igexin.download.e: void onServiceConnected(android.content.ComponentName,android.os.IBinder)>
+        -$r10 = virtualinvoke $r7.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r9)
+
+com.umeng.socialize.view.BaseDialog
+    -<com.umeng.socialize.view.BaseDialog: boolean setUpWebView()>
+        -virtualinvoke $r10.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r5, $r11)
+
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.alibaba.wireless.security.open.SecurityGuardManager")
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r5 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getInstance", $r4)
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r9 = virtualinvoke $r5.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r6)
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r5 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getSecureSignatureComp", $r4)
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r9 = virtualinvoke $r5.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r9, $r6)
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.alibaba.wireless.security.open.SecurityGuardParamContext")
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r5 = virtualinvoke $r3.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("isOpen", $r4)
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r9 = virtualinvoke $r5.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r9, $r6)
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.alibaba.wireless.security.open.securesignature.ISecureSignatureComponent")
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r5 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("signRequest", $r4)
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: void F()>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.taobao.wireless.security.sdk.securitybody.ISecurityBodyComponent")
+
+com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication
+    -<com.ut.mini.core.sign.UTSecuritySDKRequestAuthentication: java.lang.String getSign(java.lang.String)>
+        -$r3 = virtualinvoke $r6.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r7, $r10)
+
+com.umeng.analytics.d.p
+    -<com.umeng.analytics.d.p: boolean a(android.content.Context)>
+        -$r7 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.net.TrafficStats")
+com.umeng.analytics.d.p
+    -<com.umeng.analytics.d.p: boolean a(android.content.Context)>
+        -$r10 = virtualinvoke $r7.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getUidRxBytes", $r8)
+com.umeng.analytics.d.p
+    -<com.umeng.analytics.d.p: boolean a(android.content.Context)>
+        -$r11 = virtualinvoke $r7.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getUidTxBytes", $r8)
+com.umeng.analytics.d.p
+    -<com.umeng.analytics.d.p: boolean a(android.content.Context)>
+        -$r15 = virtualinvoke $r10.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r13)
+com.umeng.analytics.d.p
+    -<com.umeng.analytics.d.p: boolean a(android.content.Context)>
+        -$r15 = virtualinvoke $r11.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r13)
+
+com.umeng.socialize.utils.DeviceConfig
+    -<com.umeng.socialize.utils.DeviceConfig: java.lang.String getDeviceSN()>
+        -$r0 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.umeng.socialize.utils.DeviceConfig
+    -<com.umeng.socialize.utils.DeviceConfig: java.lang.String getDeviceSN()>
+        -$r2 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("get", $r1)
+com.umeng.socialize.utils.DeviceConfig
+    -<com.umeng.socialize.utils.DeviceConfig: java.lang.String getDeviceSN()>
+        -$r4 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r0, $r3)
+
+com.umeng.a.e
+    -<com.umeng.a.e: boolean a(android.content.Context,java.lang.String)>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.content.Context")
+com.umeng.a.e
+    -<com.umeng.a.e: boolean a(android.content.Context,java.lang.String)>
+        -$r4 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("checkSelfPermission", $r3)
+com.umeng.a.e
+    -<com.umeng.a.e: boolean a(android.content.Context,java.lang.String)>
+        -$r6 = virtualinvoke $r4.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($r0, $r5)
+
+com.umeng.a.e
+    -<com.umeng.a.e: boolean f()>
+        -virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("hasSmartBar", $r1)
+
+com.umeng.analytics.c.o
+    -<com.umeng.analytics.c.o: java.lang.String f()>
+        -$r1 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.ut.device.UTDevice")
+com.umeng.analytics.c.o
+    -<com.umeng.analytics.c.o: java.lang.String f()>
+        -$r3 = virtualinvoke $r1.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getUtdid", $r2)
+com.umeng.analytics.c.o
+    -<com.umeng.analytics.c.o: java.lang.String f()>
+        -$r6 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r4)
+
+com.umeng.analytics.c.p
+    -<com.umeng.analytics.c.p: java.lang.String a(java.lang.String,java.lang.String)>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("android.os.SystemProperties")
+com.umeng.analytics.c.p
+    -<com.umeng.analytics.c.p: java.lang.String a(java.lang.String,java.lang.String)>
+        -$r4 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("get", $r3)
+com.umeng.analytics.c.p
+    -<com.umeng.analytics.c.p: java.lang.String a(java.lang.String,java.lang.String)>
+        -$r6 = virtualinvoke $r4.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r5)
+
+a.a.a.i
+    -<a.a.a.i: a.a.a.h a(java.lang.Class,int)>
+        -$r3 = virtualinvoke $r0.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("findByValue", $r1)
+a.a.a.i
+    -<a.a.a.i: a.a.a.h a(java.lang.Class,int)>
+        -$r6 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r4)
+
+com.meizu.cloud.pushsdk.pushtracer.emitter.Emitter$EmitterBuilder
+    -<com.meizu.cloud.pushsdk.pushtracer.emitter.Emitter$EmitterBuilder: void <clinit>()>
+        -$r0 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.meizu.cloud.pushsdk.pushtracer.rx.Emitter")
+com.meizu.cloud.pushsdk.pushtracer.emitter.Emitter$EmitterBuilder
+    -<com.meizu.cloud.pushsdk.pushtracer.emitter.Emitter$EmitterBuilder: void <clinit>()>
+        -$r0 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.meizu.cloud.pushsdk.pushtracer.emitter.classic.Emitter")
+
+com.igexin.assist.action.MessageManger
+    -<com.igexin.assist.action.MessageManger: java.lang.Class a(android.content.Context)>
+        -$r4 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r3)
+
+com.autohome.usedcar.widget.floatwindow.FloatWindowSmallView
+    -<com.autohome.usedcar.widget.floatwindow.FloatWindowSmallView: int getStatusBarHeight()>
+        -$r2 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.android.internal.R$dimen")
+
+
+==========================
+**自实现的HostnameVerifier返回值恒为true，非有效校验，可能受到中间人劫持攻击
+
+com.autohome.ahkit.network.HttpsTrustManager$MyHostnameVerifier
+    -<com.autohome.ahkit.network.HttpsTrustManager$MyHostnameVerifier: boolean verify(java.lang.String,javax.net.ssl.SSLSession)>
+        -return 1
+
+com.meizu.cloud.pushsdk.platform.SSLCertificateValidation$NullHostnameVerifier
+    -<com.meizu.cloud.pushsdk.platform.SSLCertificateValidation$NullHostnameVerifier: boolean verify(java.lang.String,javax.net.ssl.SSLSession)>
+        -return 1
+
+com.autohome.ahkit.network.download.HttpDownloader$NullHostNameVerifier
+    -<com.autohome.ahkit.network.download.HttpDownloader$NullHostNameVerifier: boolean verify(java.lang.String,javax.net.ssl.SSLSession)>
+        -return 1
+
+
+==========================
+**WebView并没有调用setSavePassword(false)，存在WebView明文存储密码漏洞
+
+com.umeng.socialize.sina.webview.ShareDialog
+    -<com.umeng.socialize.sina.webview.ShareDialog: boolean setUpWebView()>
+
+com.autohome.ahkit.utils.JavascriptBridge
+    -<com.autohome.ahkit.utils.JavascriptBridge: void <init>(android.webkit.WebView,com.autohome.ahkit.utils.JavascriptBridge$BatchBindMethod)>
+
+com.autohome.usedcar.activitynew.buycar.cardetailweb.ZoneWebFragment
+    -<com.autohome.usedcar.activitynew.buycar.cardetailweb.ZoneWebFragment: void initData()>
+
+com.autohome.usedcar.activity.strategy.StrategyDetailFragment
+    -<com.autohome.usedcar.activity.strategy.StrategyDetailFragment: void initData()>
+
+com.autohome.usedcar.activity.tool.ToolWebFragment
+    -<com.autohome.usedcar.activity.tool.ToolWebFragment: void initWebView()>
+
+com.autohome.usedcar.activity.tool.ToolWebFragment
+    -<com.autohome.usedcar.activity.tool.ToolWebFragment: void initWebView()>
+
+com.autohome.usedcar.widget.AdWebView
+    -<com.autohome.usedcar.widget.AdWebView: void init()>
+
+com.autohome.ahkit.view.AHWebView
+    -<com.autohome.ahkit.view.AHWebView: void init(android.content.Context,android.util.AttributeSet,int)>
+
+com.autohome.ahkit.view.AHWebView
+    -<com.autohome.ahkit.view.AHWebView: void setUserAgent(java.lang.String)>
+
+com.autohome.ahkit.view.AHWebView
+    -<com.autohome.ahkit.view.AHWebView: void setUserAgent(java.lang.String)>
+
+com.umeng.socialize.view.BaseDialog
+    -<com.umeng.socialize.view.BaseDialog: boolean setUpWebView()>
+
+com.autohome.usedcar.widget.AdWebView$MyWebViewClient
+    -<com.autohome.usedcar.widget.AdWebView$MyWebViewClient: void onPageFinished(android.webkit.WebView,java.lang.String)>
+
+com.autohome.usedcar.widget.AdWebView$MyWebViewClient
+    -<com.autohome.usedcar.widget.AdWebView$MyWebViewClient: void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap)>
+
+
+==========================
+**应用使用WebView，同时支持File协议，在特定情况下可能利用File协议获得应用的敏感数据
+
+com.autohome.ahkit.view.AHWebView
+    -<com.autohome.ahkit.view.AHWebView: void init(android.content.Context,android.util.AttributeSet,int)>
+        -virtualinvoke $r13.<android.webkit.WebSettings: void setAllowFileAccess(boolean)>(1)
+com.umeng.socialize.view.BaseDialog
+    -<com.umeng.socialize.view.BaseDialog: boolean setUpWebView()>
+        -virtualinvoke $r5.<android.webkit.WebSettings: void setAllowFileAccess(boolean)>(1)
+com.umeng.socialize.view.BaseDialog
+    -<com.umeng.socialize.view.BaseDialog: boolean setUpWebView()>
+        -virtualinvoke $r5.<android.webkit.WebSettings: void setAllowFileAccess(boolean)>(1)
+
+
+==========================
+**WebView忽略SSL证书错误检测，可能导致中间人攻击的威胁，可能导致隐私泄露
+
+com.autohome.usedcar.widget.AdWebView
+    -<com.autohome.usedcar.widget.AdWebView: void init()>
+        -virtualinvoke $r2.<android.webkit.SslErrorHandler: void proceed()>()
+
+com.autohome.ahkit.view.AHWebView
+    -<com.autohome.ahkit.view.AHWebView: void bindJavaScriptBridgeSelf()>
+        -virtualinvoke $r2.<android.webkit.SslErrorHandler: void proceed()>()
+
+
+==========================
+**应用程序加解密时密钥使用硬编码，攻击者通过反编译拿到密钥即可解密APP通信数据
+
+com.autohome.ahkit.httpdns.HttpDNS
+    -<com.autohome.ahkit.httpdns.HttpDNS: java.lang.String decrypt(java.lang.String)>
+        -specialinvoke $r3.<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>($r5, "DES")|"utf-8" | "29Blp39J" | 
+
+com.autohome.ahkit.httpdns.HttpDNS
+    -<com.autohome.ahkit.httpdns.HttpDNS: java.lang.String encrypt(java.lang.String)>
+        -specialinvoke $r3.<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>($r5, "DES")|"utf-8" | "29Blp39J" | 
+
+com.aps.b
+    -<com.aps.b: void <init>()>
+        -specialinvoke $r3.<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>($r2, "AES")|"UTF-8" | "\"#a@u!t*o(n)a&v^i\"\"_a+m-a=p?a>p<s%3\"" | 
+
+com.igexin.assist.a.a
+    -<com.igexin.assist.a.a: java.lang.String a(java.lang.String,java.lang.String)>
+        -specialinvoke $r2.<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>($r6, "AES")|0 | 
+
+com.autohome.usedcar.util.UserAgentUtil
+    -<com.autohome.usedcar.util.UserAgentUtil: byte[] encryptMode(byte[])>
+        -specialinvoke $r1.<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>($r5, "AHWEBSEC")|"AutoHomeWebviewSecrite16" | 
+
+
+==========================
+**检测到存在SYSTEM_ALERT_WINDOW(系统弹窗)权限，该应用可能在应用外弹窗
+
+android.permission.SYSTEM_ALERT_WINDOW

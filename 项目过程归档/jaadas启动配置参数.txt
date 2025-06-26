@@ -1,0 +1,1 @@
+vulnanalysis -f D:\apk\B.apk -p G:\FlowDroid\platforms -c G:\FlowDroid\JAADAS-master\config

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="username">false</item>
+    <item type="id" name="password">false</item>
+    <item type="id" name="button1">false</item>
+    <item type="id" name="menu_settings">false</item>
+</resources>

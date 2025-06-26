@@ -1,0 +1,105 @@
+android.app.PendingIntent send 延时触发
+getAccounts 获取谷歌账号
+android.app.ActivityManager killBackgroundProcess 杀进程
+android.app.AlarmManager Set 延时触发
+android.content.BroadcastReceiver abortBroadcast 拦截短信
+android.content.ContentResolver query 遍历
+32
+android.content.ContentResolver update 篡改
+android.content.ContentResolver insert 插入
+android.content.ContentResolver delete 删除
+android.content.Intent setDataAndType 安装
+android.content.Intent startActivity 邮件
+android.content.Intent getAction 监听广播
+android.content.pm.PacakageManager getInstallerPackageName 获取软件信息
+android.content.pm.PackageManager removePackageFromPrefe 卸载软件
+android.content.pm.PackageManager getInstalledPackages 获取软件信息
+android.content.pm.PackageManager getInstalledApplications 获取软件信息
+android.database.sqlite.SQLiteDatabase execSQL 数据库相关
+android.location.LocationManager getLastKnownLocation 获取地理位置
+android.media.MediaRecorder MediaRecorder 录音
+android.telephoney.gsm.SmsManager sendDataMessage 发送彩信
+android.telephoney.gsm.SmsManager sendMultipartTextMessage 发送短彩信
+android.telephoney.gsm.SmsManager sendTextMessage 发送彩信
+android.telephoney.SmsManager sendDataMessage 发送彩信
+android.telephoney.SmsManager sendMultipartTextMessage 发送短彩信
+android.telephoney.SmsManager sendTextMessage 发送短信
+android.telephony.gsm.SmsMessage getDisplayOriginatingAddress 读取短信
+android.telephony.gsm.SmsMessage getDisplayMessageBody 读取短信
+android.telephony.PhoneStateListener onCallStateChanged 监听手机状态
+android.telephony.TelephonyManager getLine1Number 获取手机号
+android.telephony.TelephonyManager getDeviceId 获取IMEI
+android.telephony.TelephonyManager getSubscriberId 获取IMSI
+android.telephony.TelephonyManager getCellLocation 获取地理位置
+dalvik.system.DexClassLoader loadClass 动态加载
+dalvik.system.PathClassLoader loadClass 动态加载
+java.lang.Runtime exec 执行脚本
+java.net.HttpURLConnection connect 联网
+java.net.URLConnection connect 联网
+javax.crypto.Cipher getInstance 加密解密
+javax.crypto.Cipher Init 加密解密
+javax.crypto.Cipher doFinal 加密解密
+org.apache.http.impl.client DefaultHttpClient 联网
+
+
+backport.android google code上的一个蓝牙项目
+cn.com.android 安致论坛插件
+com.admob 移动的广告插件
+com.adwhirl 广告插件
+com.eoemobile 易联致远插件
+com.facebook facebook插件
+com.flurry 统计插件
+com.google google的各种插件
+com.greystripe 移动广告插件
+com.mappn 机锋插件
+com.millennialmedia 广告插件
+com.mobclick 友盟统计插件
+com.mobclix 移动广告插件
+com.netqin 网秦插件
+com.openfeint 社交游戏平台插件
+com.papaya 通用游戏引擎
+com.paypal paypal插件
+com.scoreloop 社交游戏平台插件
+com.socialin adturns.com网站的广告插件
+com.tapjoy 游戏插件，含有广告
+com.tencent QQ插件
+com.umpay 联动优势支付插件
+com.wooboo 广告插件
+engine.scoreloop 游戏平台
+net.youmi 广告插件
+org.meteroid Java ME的Android插件
+
+
+这些可以用于对api做机器学习上的应用，首先这些不够全面，比如恶意广告中常用的危险api，比如一些经典漏洞可能利用的api
+都需要再添加上去
+另外白名单机制还需要再考虑一下
+
+
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"></uses-permission>
+https://www.jianshu.com/p/9720ca04899c
+通过这个权限，可以在桌面上创建一个系统弹窗
+http://blog.csdn.net/u012393907/article/details/44180203
+这篇中提出了第二种方法，可以自动展示一个类似的dialog，然后结合qq的强制置顶的方式，所以这里一个是对这种activity样式的检测，一个是对强制置顶方法的检测
+ if (Build.VERSION.SDK_INT >= 24) { /*android7.0不能用TYPE_TOAST*/
+if (permission) {
+                wmParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+            } else {
+                wmParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+            }
+        }
+windowManager.addView(mFloatLayout, wmParams);
+可以通过将type设置为toast来不需要权限就可以应用外展示弹窗
+
+
+添加代码动态加载的检测模块
+	http://blog.csdn.net/u010687392/article/details/47121729
+	这里面将整个过程写的很清楚，其实就是一个通过反射调用实现构建assetManager类之后来new
+	 Resources类拿到资源，另一个就是通过DexClassLoader来搜寻对应资源的ID
+	 
+	建议提取loadClass函数作为类加载器的特征检测，提取反射中的
+
+
+应用重打包检测模块
+	
+	
+添加root代码的检测模块
